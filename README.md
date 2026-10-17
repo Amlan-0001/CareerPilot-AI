@@ -1,3 +1,4 @@
+ HEAD
 # CareerPilot AI — AI-Powered Career Operating System
 
 CareerPilot AI is an AI-powered Career Operating System designed to streamline and automate job application workflows for students and professionals.
@@ -52,3 +53,6 @@ FastAPI interactive documentation will be available at `http://localhost:8000/do
 ---
 **Author**: N. M. Amlan  
 **License**: MIT
+=======
+# CareerPilot-AI
+>>>>>>> da9d4b253fcaf6f03050711f94ee4cc109623322
