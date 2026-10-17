@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPilot AI Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h2>CareerPilot AI</h2>
+          <span class="subtitle">Human-in-the-Loop Assistant</span>
+        </div>
+      </div>
+      <div id="statusBadge" class="badge badge-disconnected">Checking...</div>
+    </div>
+
+    <!-- User Account Bar (Logged In State) -->
+    <div id="userAccountBar" class="user-account-bar hidden">
+      <div class="user-info">
+        <span class="user-icon">👤</span>
+        <span id="userEmailText" class="user-email">user@example.com</span>
+      </div>
+      <button id="logoutBtn" class="btn-text">Sign Out</button>
+    </div>
+
+    <!-- Login Card (Logged Out State) -->
+    <div id="loginCard" class="card login-card">
+      <div class="card-title">Sign In to CareerPilot</div>
+      <p class="card-desc">Log in with the same email as your web application to sync your AI Memory.</p>
+      
+      <form id="loginForm" class="form-group">
+        <input type="email" id="loginEmail" placeholder="Enter your email" required />
+        <input type="password" id="loginPassword" placeholder="Enter your password" required />
+        <button type="submit" id="loginSubmitBtn" class="btn-primary">
+          <span>Sign In & Sync Account</span>
+        </button>
+      </form>
+      
+      <div class="divider"><span>OR</span></div>
+      
+      <button id="syncWebTabBtn" class="btn-secondary">
+        <span>🔄 Auto-Sync From Open Website Tab</span>
+      </button>
+    </div>
+
+    <!-- Main Extension Workspace (Visible when Logged In) -->
+    <div id="workspacePanel" class="workspace-panel hidden">
+      <!-- Navigation Tabs -->
+      <div class="tabs-nav">
+        <button id="tabAnalyzer" class="tab-btn active">⚡ JD Analyzer</button>
+        <button id="tabAutofill" class="tab-btn">🪄 Form Autofill</button>
+      </div>
+
+      <!-- Tab Content 1: JD Analyzer -->
+      <div id="contentAnalyzer" class="tab-content">
+        <div class="card action-card">
+          <p class="card-desc">Extract job requirements from active page and analyze match score against your profile.</p>
+          <button id="analyzeJdBtn" class="btn-primary">
+            <span>✨ Analyze Page Job Description</span>
+          </button>
+        </div>
+
+        <!-- Analysis Results Panel -->
+        <div id="resultsPanel" class="card results-card hidden">
+          <div class="result-header">
+            <span class="result-title">Match Analysis</span>
+            <div id="scoreBadge" class="score-badge">0%</div>
+          </div>
+
+          <p id="summaryText" class="summary-text"></p>
+
+          <div class="skills-section">
+            <span class="label">Missing Skills Gap:</span>
+            <div id="missingSkillsContainer" class="tags-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Smart Form Autofill with Human Approval Gate -->
+      <div id="contentAutofill" class="tab-content hidden">
+        <!-- Scan Action Button -->
+        <div id="scanActionCard" class="card action-card">
+          <p class="card-desc">Scan form inputs on active webpage and generate proposed answers for human review.</p>
+          <button id="scanFormBtn" class="btn-success">
+            <span>🔍 Scan Page & Propose Autofill</span>
+          </button>
+        </div>
+
+        <!-- Human Approval & Proposal Review Panel -->
+        <div id="proposalReviewPanel" class="card proposal-panel hidden">
+          <div class="panel-header">
+            <h4 class="panel-title">Form Autofill Proposals</h4>
+            <span id="proposalCountBadge" class="count-badge">0 Proposals</span>
+          </div>
+          <p class="panel-subtitle">Review, edit, or reject proposed values before injecting into page.</p>
+
+          <!-- Interactive Proposals Container -->
+          <div id="proposalsContainer" class="proposals-list"></div>
+
+          <!-- Global Action Buttons -->
+          <div class="proposals-toolbar">
+            <button id="fillApprovedBtn" class="btn-primary">
+              <span>✓ Fill Approved Fields</span>
+            </button>
+            <button id="approveAllBtn" class="btn-secondary">
+              <span>Approve All</span>
+            </button>
+            <button id="cancelProposalsBtn" class="btn-text-cancel">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <!-- Detailed Fill Verification Report -->
+        <div id="verificationReportCard" class="card report-card hidden">
+          <div class="report-header">
+            <span class="report-title">Form Fill Execution Summary</span>
+          </div>
+          
+          <div className="report-grid">
+            <div class="report-stat">
+              <span id="statDetected" class="stat-num">0</span>
+              <span class="stat-label">Detected</span>
+            </div>
+            <div class="report-stat">
+              <span id="statApproved" class="stat-num text-purple">0</span>
+              <span class="stat-label">Approved</span>
+            </div>
+            <div class="report-stat">
+              <span id="statFilled" class="stat-num text-emerald">0</span>
+              <span class="stat-label">Filled</span>
+            </div>
+            <div class="report-stat">
+              <span id="statManual" class="stat-num text-amber">0</span>
+              <span class="stat-label">Manual</span>
+            </div>
+          </div>
+
+          <div id="reportDetailList" class="report-detail-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="messageToast" class="toast hidden"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

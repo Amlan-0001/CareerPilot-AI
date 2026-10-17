@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "CareerPilot AI — Application Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered job description extraction, match scoring, and smart form autofill for career applications.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "cookies"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://localhost:3000/*",
+    "http://127.0.0.1:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CareerPilot AI Assistant"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

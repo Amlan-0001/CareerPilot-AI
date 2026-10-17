@@ -1,0 +1,23 @@
+# Skill Types
+SKILL_TYPES = ["Programming", "Framework", "Tool", "Database", "Soft Skill", "Other"]
+
+# Application Statuses
+APPLICATION_STATUS_APPLIED = "Applied"
+APPLICATION_STATUS_INTERVIEW = "Interview"
+APPLICATION_STATUS_REJECTED = "Rejected"
+APPLICATION_STATUS_OFFER = "Offer"
+
+APPLICATION_STATUSES = [
+    APPLICATION_STATUS_APPLIED,
+    APPLICATION_STATUS_INTERVIEW,
+    APPLICATION_STATUS_REJECTED,
+    APPLICATION_STATUS_OFFER,
+]
+
+# Application Platforms
+PLATFORM_GOOGLE_FORMS = "Google Forms"
+PLATFORM_DEMO_FORM = "Demo Form"
+PLATFORM_OTHER = "Other"
+
+# Allowed Resume Upload Extensions
+ALLOWED_RESUME_EXTENSIONS = [".pdf"]

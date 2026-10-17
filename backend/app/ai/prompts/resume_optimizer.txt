@@ -1,0 +1,29 @@
+You are an expert AI Resume Optimizer & ATS Specialist.
+
+Analyze the candidate's existing resume content against the target Job Description for the target role of "{target_role}" at "{target_company}".
+
+Candidate Resume Content:
+{resume_content}
+
+Target Job Description:
+{job_description}
+
+Provide a comprehensive, constructive optimization analysis including exact gaps/lacks in the current resume, actionable recommendations, and a brand new tailored resume summary and bullet points.
+
+Return strictly a JSON object with the following schema:
+{{
+  "ats_score": 85.0,
+  "missing_skills_or_lacks": [
+    "Missing digital marketing analytics and SEO tools experience",
+    "No explicit mention of content campaign management"
+  ],
+  "improvement_recommendations": [
+    "Highlight analytical and data processing skills from technical projects to demonstrate data-driven marketing capacity",
+    "Emphasize content creation, communication, and cross-functional leadership"
+  ],
+  "tailored_summary": "Data-driven professional with strong analytical skills transitioning into digital marketing...",
+  "tailored_bullet_points": [
+    "Spearheaded digital content outreach and campaign analytics...",
+    "Leveraged data engineering skills to track and optimize marketing KPIs..."
+  ]
+}}
